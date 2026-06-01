@@ -3,6 +3,7 @@ import TaskList from "./components/TaskList";
 import TaskForm from "./components/TaskForm";
 import styles from "./scss/App.module.scss";
 import type { Task } from "./types";
+import TaskStats from "./components/TaskStats";
 
 function App() {
   const [data, setData] = useState<Task[]>([
@@ -39,14 +40,24 @@ function App() {
     setData((prevData) => prevData.filter((item) => item.id !== id));
   }
 
+  function deleteCompletedTasks() {
+    setData((prevData) => prevData.filter((item) => !item.completed));
+  }
+
   return (
     <div className={styles.main}>
       <TaskForm cb={getTask}></TaskForm>
+
       <TaskList
         data={data}
         toggleData={ToggleData}
         deleteItem={deleteItem}
       ></TaskList>
+
+      <TaskStats
+        deleteCompletedTasks={deleteCompletedTasks}
+        data={data}
+      ></TaskStats>
     </div>
   );
 }
