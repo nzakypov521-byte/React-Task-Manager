@@ -2,7 +2,6 @@ import { useState } from "react";
 import TaskList from "./components/TaskList";
 import TaskForm from "./components/TaskForm";
 import styles from "./scss/App.module.scss";
-import "./App.css";
 import type { Task } from "./types";
 
 function App() {
@@ -23,7 +22,6 @@ function App() {
       };
 
       setData([...data, dataToSave]);
-      console.log(data);
     } else {
       alert("Заполните поле");
     }
@@ -37,10 +35,20 @@ function App() {
     );
   }
 
+  function deleteItem(id: number) {
+    setData((prevData) =>
+      prevData.filter((item) => (item.id !== id)),
+    );
+  }
+
   return (
     <div className={styles.main}>
       <TaskForm cb={getTask}></TaskForm>
-      <TaskList data={data} toggleData={ToggleData}></TaskList>
+      <TaskList
+        data={data}
+        toggleData={ToggleData}
+        deleteItem={deleteItem}
+      ></TaskList>
     </div>
   );
 }

@@ -1,13 +1,15 @@
 import styles from "../scss/TaskList.module.scss";
 import TaskItem from "./TaskItem";
-import type { Task } from "../types"
+import type { Task } from "../types";
 
 function TaskList({
   data,
   toggleData,
+  deleteItem,
 }: {
   data: Task[];
   toggleData: (id: number, status: boolean) => void;
+  deleteItem: (id: number) => void;
 }) {
   return (
     <div className={styles.mainBlock}>
@@ -17,7 +19,8 @@ function TaskList({
           id={item.id}
           text={item.text}
           completed={item.completed}
-          cb={toggleData}
+          toggleData={toggleData}
+          deleteItem={deleteItem}
         ></TaskItem>
       ))}
     </div>

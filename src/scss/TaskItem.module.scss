@@ -20,12 +20,36 @@
 
   padding: 5% 3%;
 
-  flex-shrink: 0 input {
-    width: 30px;
-    height: 30px;
-  }
+  flex-shrink: 0;
 
-  input:hover {
-    cursor: pointer;
+  .checkbox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 5px;
+
+    input {
+      width: 30px;
+      height: 30px;
+    }
+
+    input:hover {
+      cursor: pointer;
+    }
+
+    button {
+      width: 90px;
+      height: 30px;
+
+      background-color: red;
+      color: white;
+
+      border: none;
+    }
+
+    button:hover {
+      cursor: pointer;
+    }
   }
 }
