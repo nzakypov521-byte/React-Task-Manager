@@ -1,0 +1,48 @@
+import { useState } from "react";
+import TaskList from "./components/TaskList";
+import TaskForm from "./components/TaskForm";
+import styles from "./scss/App.module.scss";
+import "./App.css";
+import type Task from "./types";
+
+function App() {
+  const [data, setData] = useState<Task[]>([
+    {
+      id: 1,
+      text: "Тест",
+      completed: true,
+    },
+  ]);
+
+  function getTask(text: string) {
+    if (text.replaceAll(" ", "")) {
+      const dataToSave = {
+        id: Date.now(),
+        text: text,
+        completed: false,
+      };
+
+      setData([...data, dataToSave]);
+      console.log(data);
+    } else {
+      alert("Заполните поле");
+    }
+  }
+
+  function ToggleData(id: number, status: boolean) {
+    setData((prevData) =>
+      prevData.map((item) =>
+        item.id === id ? { ...item, completed: status } : item,
+      ),
+    );
+  }
+
+  return (
+    <div className={styles.main}>
+      <TaskForm cb={getTask}></TaskForm>
+      <TaskList data={data} toggleData={ToggleData}></TaskList>
+    </div>
+  );
+}
+
+export default App;
