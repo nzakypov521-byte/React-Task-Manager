@@ -37,7 +37,7 @@ function App() {
 
   function deleteItem(id: number) {
     setData((prevData) =>
-      prevData.filter((item) => (item.id !== id ? true : false)),
+      prevData.filter((item) => (item.id !== id)),
     );
   }
 
