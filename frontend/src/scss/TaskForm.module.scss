@@ -1,0 +1,43 @@
+.mainBlock {
+    width: 100%;
+    height: auto;
+
+    background-color: rgb(184, 136, 74);
+    border: 3px solid burlywood;
+    border-radius: 12px;
+
+    padding: 10% 10%;
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 40px;
+
+    box-sizing: border-box;
+
+    input {
+        width: 100%;
+
+        padding: 4px 5px;
+
+        background-color: blanchedalmond;
+        border: none;
+        border-radius: 4px;
+
+        box-sizing: border-box;
+    }
+
+    button {
+        width: 40%;
+       
+        padding: 10px 0;
+        
+        background-color: cornsilk;
+        border: none;
+    }
+    
+    button:hover {
+        cursor: pointer;
+        background-color: burlywood;
+    }
+}
