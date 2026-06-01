@@ -19,8 +19,8 @@ function TaskList({
           id={item.id}
           text={item.text}
           completed={item.completed}
-          cb={toggleData}
-          delete={deleteItem}
+          toggleData={toggleData}
+          deleteItem={deleteItem}
         ></TaskItem>
       ))}
     </div>
