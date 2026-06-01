@@ -37,10 +37,20 @@ function App() {
     );
   }
 
+  function deleteItem(id: number) {
+    setData((prevData) =>
+      prevData.filter((item) => (item.id != id ? item : null)),
+    );
+  }
+
   return (
     <div className={styles.main}>
       <TaskForm cb={getTask}></TaskForm>
-      <TaskList data={data} toggleData={ToggleData}></TaskList>
+      <TaskList
+        data={data}
+        toggleData={ToggleData}
+        deleteItem={deleteItem}
+      ></TaskList>
     </div>
   );
 }

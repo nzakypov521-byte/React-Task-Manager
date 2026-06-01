@@ -1,11 +1,12 @@
 import styles from "../scss/TaskItem.module.scss";
 
 interface TaskItemType {
-  key: number,
-  id: number,
-  text: string,
-  completed: boolean,
-  cb: (id: number, mode: boolean) => void
+  key: number;
+  id: number;
+  text: string;
+  completed: boolean;
+  cb: (id: number, mode: boolean) => void;
+  delete: (id: number) => void;
 }
 
 function TaskItem(props: TaskItemType) {
@@ -18,6 +19,7 @@ function TaskItem(props: TaskItemType) {
           checked={props.completed}
           onChange={(e) => props.cb(props.id, e.target.checked)}
         />
+        <button onClick={() => props.delete(props.id)}>Удалить задачу</button>
       </div>
     </div>
   );
