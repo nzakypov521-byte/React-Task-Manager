@@ -1,6 +1,14 @@
 import styles from "../scss/TaskItem.module.scss";
 
-function TaskItem(props) {
+interface TaskItemType {
+  key: number,
+  id: number,
+  text: string,
+  completed: boolean,
+  cb: (id: number, mode: boolean) => void
+}
+
+function TaskItem(props: TaskItemType) {
   return (
     <div className={styles.mainBlock}>
       <div className={styles.text}>{props.text}</div>

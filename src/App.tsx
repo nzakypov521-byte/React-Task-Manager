@@ -3,7 +3,7 @@ import TaskList from "./components/TaskList";
 import TaskForm from "./components/TaskForm";
 import styles from "./scss/App.module.scss";
 import "./App.css";
-import type Task from "./types";
+import type { Task } from "./types";
 
 function App() {
   const [data, setData] = useState<Task[]>([

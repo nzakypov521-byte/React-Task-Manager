@@ -1,12 +1,13 @@
 import styles from "../scss/TaskList.module.scss";
 import TaskItem from "./TaskItem";
+import type { Task } from "../types"
 
 function TaskList({
   data,
   toggleData,
 }: {
   data: Task[];
-  toggleData: (id: number, status: boolaen) => void;
+  toggleData: (id: number, status: boolean) => void;
 }) {
   return (
     <div className={styles.mainBlock}>
