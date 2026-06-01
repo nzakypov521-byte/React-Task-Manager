@@ -18,7 +18,9 @@ function TaskItem(props: TaskItemType) {
           checked={props.completed}
           onChange={(e) => props.toggleData(props.id, e.target.checked)}
         />
-        <button onClick={() => props.deleteItem(props.id)}>Удалить задачу</button>
+        <button onClick={() => props.deleteItem(props.id)}>
+          Удалить задачу
+        </button>
       </div>
     </div>
   );
