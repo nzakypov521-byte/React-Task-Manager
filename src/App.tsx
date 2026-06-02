@@ -22,7 +22,7 @@ function App() {
 
   useEffect(() => localStorage.setItem("Data", JSON.stringify(data)), [data]);
 
-  function getTask(text: string) {
+  function addTask(text: string) {
     if (text.replaceAll(" ", "")) {
       const dataToSave = {
         id: Date.now(),
@@ -36,7 +36,7 @@ function App() {
     }
   }
 
-  function ToggleData(id: number, status: boolean) {
+  function ToggleTask(id: number, status: boolean) {
     setData((prevData) =>
       prevData.map((item) =>
         item.id === id ? { ...item, completed: status } : item
@@ -58,13 +58,13 @@ function App() {
 
   return (
     <div className={styles.main}>
-      <TaskForm cb={getTask}></TaskForm>
+      <TaskForm onAddTask={addTask}></TaskForm>
       <div className={styles.list}>
         <TaskFilters changeMode={changeMode}></TaskFilters>
         <TaskList
           data={data}
-          toggleData={ToggleData}
-          deleteItem={deleteItem}
+          onToggle={ToggleTask}
+          onDelete={deleteItem}
           mode={mode}
         ></TaskList>
       </div>

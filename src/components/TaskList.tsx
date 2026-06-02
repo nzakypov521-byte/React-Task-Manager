@@ -5,13 +5,13 @@ import type { Mode } from "../types";
 
 function TaskList({
   data,
-  toggleData,
-  deleteItem,
+  onToggle,
+  onDelete,
   mode,
 }: {
   data: Task[];
-  toggleData: (id: number, status: boolean) => void;
-  deleteItem: (id: number) => void;
+  onToggle: (id: number, status: boolean) => void;
+  onDelete: (id: number) => void;
   mode: Mode;
 }) {
   return (
@@ -28,8 +28,8 @@ function TaskList({
             id={item.id}
             text={item.text}
             completed={item.completed}
-            toggleData={toggleData}
-            deleteItem={deleteItem}
+            onToggle={onToggle}
+            onDelete={onDelete}
           ></TaskItem>
         ))}
     </div>

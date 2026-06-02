@@ -4,8 +4,8 @@ interface TaskItemType {
   id: number;
   text: string;
   completed: boolean;
-  toggleData: (id: number, mode: boolean) => void;
-  deleteItem: (id: number) => void;
+  onToggle: (id: number, mode: boolean) => void;
+  onDelete: (id: number) => void;
 }
 
 function TaskItem(props: TaskItemType) {
@@ -16,9 +16,9 @@ function TaskItem(props: TaskItemType) {
         <input
           type="checkbox"
           checked={props.completed}
-          onChange={(e) => props.toggleData(props.id, e.target.checked)}
+          onChange={(e) => props.onToggle(props.id, e.target.checked)}
         />
-        <button onClick={() => props.deleteItem(props.id)}>
+        <button onClick={() => props.onDelete(props.id)}>
           Удалить задачу
         </button>
       </div>

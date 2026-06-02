@@ -1,7 +1,7 @@
 import styles from "../scss/TaskForm.module.scss";
 import { useState } from "react";
 
-function TaskForm({ cb }: { cb: (text: string) => void }) {
+function TaskForm({ onAddTask }: { onAddTask: (text: string) => void }) {
   const [text, setText] = useState<string>("");
 
   return (
@@ -9,7 +9,7 @@ function TaskForm({ cb }: { cb: (text: string) => void }) {
       className={styles.mainBlock}
       onSubmit={(e) => {
         e.preventDefault();
-        cb(text);
+        onAddTask(text);
         setText("");
       }}
     >
