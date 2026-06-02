@@ -1,45 +1,58 @@
 .mainBlock {
   width: 100%;
-  height: 20vh;
+  height: auto;
 
-  background-color: burlywood;
+  background-color: transparent;
 
   display: flex;
-  flex-direction: column;
-  align-items: start;
-  gap: 7px;
+  flex-direction: row;
+  justify-content: space-between;
 
   border-radius: 12px;
-  border: 3px solid rgb(173, 128, 44);
+  border: none;
 
   text-align: start;
 
-  box-sizing: border-box;
+  font-size: 80%;
 
-  padding: 5% 8%;
+  .stats {
+    flex: 1;
+    height: 25px;
 
-  .completeTasks {
-    color: green;
-  }
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
 
-  .unCompleteTasks {
-    color: red;
-  }
+    gap: 9px;
 
-  .allTasks {
-    color: black;
+    .tasksStat {
+      color: gray;
+
+      display: flex;
+      flex-direction: row;
+      align-items: start;
+
+      .tasksStatAmount {
+        font-weight: bold;
+        color: black;
+      }
+    }
   }
 
   button {
-    width: 50%;
+    width: 300px;
     height: 25px;
 
-    color: white;
+    color: red;
 
-    background-color: red;
+    background-color: transparent;
 
     border: none;
     border-radius: 12px;
+
+    display: flex;
+    justify-content: end;
   }
 
   button:hover {

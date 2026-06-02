@@ -61,10 +61,9 @@ function App() {
       <TaskForm onAddTask={addTask}></TaskForm>
       <div className={styles.list}>
         <TaskFilters mode={mode} changeMode={changeMode}></TaskFilters>
+        <TaskStats deleteCompletedTasks={deleteCompletedTasks} data={data}></TaskStats>
         <TaskList data={data} onToggle={toggleTask} onDelete={deleteItem} mode={mode}></TaskList>
       </div>
-
-      <TaskStats deleteCompletedTasks={deleteCompletedTasks} data={data}></TaskStats>
     </div>
   )
 }
