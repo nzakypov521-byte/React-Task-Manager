@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import TaskList from "./components/TaskList";
 import TaskForm from "./components/TaskForm";
 import styles from "./scss/App.module.scss";
@@ -10,13 +10,17 @@ import type { Mode } from "./types";
 function App() {
   const [mode, setMode] = useState<Mode>("All");
 
-  const [data, setData] = useState<Task[]>([
-    {
-      id: 1,
-      text: "Тест",
-      completed: true,
-    },
-  ]);
+  const [data, setData] = useState<Task[]>(() => {
+    try {
+      const saved = localStorage.getItem("Data");
+      return saved ? JSON.parse(saved) : [];
+    } catch (e) {
+      console.error(e);
+      return [];
+    }
+  });
+
+  useEffect(() => localStorage.setItem("Data", JSON.stringify(data)), [data]);
 
   function getTask(text: string) {
     if (text.replaceAll(" ", "")) {
@@ -35,8 +39,8 @@ function App() {
   function ToggleData(id: number, status: boolean) {
     setData((prevData) =>
       prevData.map((item) =>
-        item.id === id ? { ...item, completed: status } : item,
-      ),
+        item.id === id ? { ...item, completed: status } : item
+      )
     );
   }
 
@@ -55,15 +59,15 @@ function App() {
   return (
     <div className={styles.main}>
       <TaskForm cb={getTask}></TaskForm>
-     <div className={styles.list}>
-     <TaskFilters changeMode={changeMode}></TaskFilters>
-      <TaskList
-        data={data}
-        toggleData={ToggleData}
-        deleteItem={deleteItem}
-        mode={mode}
-      ></TaskList>
-     </div>
+      <div className={styles.list}>
+        <TaskFilters changeMode={changeMode}></TaskFilters>
+        <TaskList
+          data={data}
+          toggleData={ToggleData}
+          deleteItem={deleteItem}
+          mode={mode}
+        ></TaskList>
+      </div>
 
       <TaskStats
         deleteCompletedTasks={deleteCompletedTasks}
