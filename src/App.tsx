@@ -60,7 +60,7 @@ function App() {
     <div className={styles.main}>
       <TaskForm onAddTask={addTask}></TaskForm>
       <div className={styles.list}>
-        <TaskFilters changeMode={changeMode}></TaskFilters>
+        <TaskFilters mode={mode} changeMode={changeMode}></TaskFilters>
         <TaskList data={data} onToggle={toggleTask} onDelete={deleteItem} mode={mode}></TaskList>
       </div>
 
