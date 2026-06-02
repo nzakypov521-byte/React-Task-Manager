@@ -22,9 +22,15 @@
 
     background-color: blanchedalmond;
     border: none;
+    outline: none;
     border-radius: 4px;
 
     box-sizing: border-box;
+  }
+
+  input:not(:placeholder-shown) {
+    background-color: #f0f7ff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
   }
 
   button {
