@@ -1,16 +1,16 @@
-import styles from "../scss/TaskForm.module.scss";
-import { useState } from "react";
+import styles from '../scss/TaskForm.module.scss'
+import { useState } from 'react'
 
 function TaskForm({ onAddTask }: { onAddTask: (text: string) => void }) {
-  const [text, setText] = useState<string>("");
+  const [text, setText] = useState<string>('')
 
   return (
     <form
       className={styles.mainBlock}
       onSubmit={(e) => {
-        e.preventDefault();
-        onAddTask(text);
-        setText("");
+        e.preventDefault()
+        onAddTask(text)
+        setText('')
       }}
     >
       <input
@@ -22,7 +22,7 @@ function TaskForm({ onAddTask }: { onAddTask: (text: string) => void }) {
       />
       <button>Добавить</button>
     </form>
-  );
+  )
 }
 
-export default TaskForm;
+export default TaskForm

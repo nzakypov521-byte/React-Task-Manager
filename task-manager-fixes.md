@@ -31,12 +31,14 @@ git push -u origin <имя-ветки>
 
 **1. README (обязательно — пункт Definition of Done)**
 Сейчас в README дефолтный текст Vite-шаблона. Замени на свой:
+
 - 1–2 строки, что это за проект;
 - команды запуска: `npm install`, затем `npm run dev`;
 - по желанию `npm run build`, `npm run lint`.
 
 **2. Нейминг**
 Имена должны говорить, что делает функция/проп.
+
 - `getTask` → `addTask` (функция добавляет задачу, а не получает);
 - `ToggleData` → `toggleTask` (с большой буквы читается как компонент);
 - проп `cb` в `TaskForm` → `onAddTask`;
@@ -49,15 +51,19 @@ git push -u origin <имя-ветки>
 В `toggle` и `delete` уже правильно (`setData(prev => ...)`). В `addTask` всё ещё `setData([...data, ...])` — приведи к функциональному апдейтеру `setData(prev => [...prev, ...])`. Заодно загляни, почему массив обновляют через новый массив, а не `data.push(...)` — это базовая идея React.
 
 **5. Мелочи**
+
 - `useEffect(() => localStorage.setItem(...))` со стрелкой без тела выглядит как cleanup-функция. Поставь тело: `useEffect(() => { localStorage.setItem(...) }, [data])`.
 - ключ localStorage `"Data"` → осмысленный нижний регистр, например `"tasks"`.
 
 **6. Prettier + ESLint (хвост с первой ветки)**
 `prettier` и `eslint-config-prettier` стоят в зависимостях, но не настроены:
+
 - создай `.prettierrc.json`:
+
 ```json
 { "semi": false, "singleQuote": true, "printWidth": 100, "trailingComma": "all" }
 ```
+
 - подключи `eslint-config-prettier` **последним** в `eslint.config.js`;
 - один раз прогони `npx prettier --write .`.
 

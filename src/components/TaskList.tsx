@@ -1,7 +1,7 @@
-import styles from "../scss/TaskList.module.scss";
-import TaskItem from "./TaskItem";
-import type { Task } from "../types";
-import type { Mode } from "../types";
+import styles from '../scss/TaskList.module.scss'
+import TaskItem from './TaskItem'
+import type { Task } from '../types'
+import type { Mode } from '../types'
 
 function TaskList({
   data,
@@ -9,18 +9,16 @@ function TaskList({
   onDelete,
   mode,
 }: {
-  data: Task[];
-  onToggle: (id: number, status: boolean) => void;
-  onDelete: (id: number) => void;
-  mode: Mode;
+  data: Task[]
+  onToggle: (id: number, status: boolean) => void
+  onDelete: (id: number) => void
+  mode: Mode
 }) {
   return (
     <div className={styles.mainBlock}>
       {data
         .filter(
-          (item) =>
-            mode === "All" ||
-            (mode === "Completed" ? item.completed : !item.completed),
+          (item) => mode === 'All' || (mode === 'Completed' ? item.completed : !item.completed),
         )
         .map((item) => (
           <TaskItem
@@ -33,7 +31,7 @@ function TaskList({
           ></TaskItem>
         ))}
     </div>
-  );
+  )
 }
 
-export default TaskList;
+export default TaskList
