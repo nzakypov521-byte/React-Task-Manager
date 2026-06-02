@@ -1,12 +1,12 @@
-import styles from "../scss/TaskStats.module.scss";
-import type { Task } from "../types";
+import styles from '../scss/TaskStats.module.scss'
+import type { Task } from '../types'
 
 function TaskStats({
   deleteCompletedTasks,
   data,
 }: {
-  deleteCompletedTasks: () => void;
-  data: Task[];
+  deleteCompletedTasks: () => void
+  data: Task[]
 }) {
   return (
     <div className={styles.mainBlock}>
@@ -24,7 +24,7 @@ function TaskStats({
       </div>
       <button onClick={deleteCompletedTasks}>Удалить выполненные задачи</button>
     </div>
-  );
+  )
 }
 
-export default TaskStats;
+export default TaskStats

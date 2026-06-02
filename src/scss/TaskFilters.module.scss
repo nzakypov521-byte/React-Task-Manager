@@ -1,12 +1,13 @@
 .mainBlock {
   width: 100%;
+  height: auto;
 
   display: flex;
   flex-direction: row;
 
   button {
     width: 33.3%;
-    height: 15%;
+    height: 50%;
 
     border: none;
     background-color: beige;

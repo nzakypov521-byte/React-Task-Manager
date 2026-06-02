@@ -1,80 +1,72 @@
-import { useEffect, useState } from "react";
-import TaskList from "./components/TaskList";
-import TaskForm from "./components/TaskForm";
-import styles from "./scss/App.module.scss";
-import type { Task } from "./types";
-import TaskStats from "./components/TaskStats";
-import TaskFilters from "./components/TaskFilters";
-import type { Mode } from "./types";
+import { useEffect, useState } from 'react'
+import TaskList from './components/TaskList'
+import TaskForm from './components/TaskForm'
+import styles from './scss/App.module.scss'
+import type { Task } from './types'
+import TaskStats from './components/TaskStats'
+import TaskFilters from './components/TaskFilters'
+import type { Mode } from './types'
 
 function App() {
-  const [mode, setMode] = useState<Mode>("All");
+  const [mode, setMode] = useState<Mode>('All')
 
   const [data, setData] = useState<Task[]>(() => {
     try {
-      const saved = localStorage.getItem("Data");
-      return saved ? JSON.parse(saved) : [];
+      const saved = localStorage.getItem('tasks')
+      return saved ? JSON.parse(saved) : []
     } catch (e) {
-      console.error(e);
-      return [];
+      console.error(e)
+      return []
     }
-  });
+  })
 
-  useEffect(() => localStorage.setItem("Data", JSON.stringify(data)), [data]);
+  useEffect(() => {
+    localStorage.setItem('tasks', JSON.stringify(data))
+  }, [data])
 
-  function getTask(text: string) {
-    if (text.replaceAll(" ", "")) {
+  function addTask(text: string) {
+    if (text.trim()) {
       const dataToSave = {
         id: Date.now(),
-        text: text,
+        text: text.trim(),
         completed: false,
-      };
+      }
 
-      setData([...data, dataToSave]);
+      setData((prevData) => [...prevData, dataToSave])
     } else {
-      alert("Заполните поле");
+      alert('Заполните поле')
     }
   }
 
-  function ToggleData(id: number, status: boolean) {
+  function toggleTask(id: number, status: boolean) {
     setData((prevData) =>
-      prevData.map((item) =>
-        item.id === id ? { ...item, completed: status } : item
-      )
-    );
+      prevData.map((item) => (item.id === id ? { ...item, completed: status } : item)),
+    )
   }
 
   function deleteItem(id: number) {
-    setData((prevData) => prevData.filter((item) => item.id !== id));
+    setData((prevData) => prevData.filter((item) => item.id !== id))
   }
 
   function deleteCompletedTasks() {
-    setData((prevData) => prevData.filter((item) => !item.completed));
+    setData((prevData) => prevData.filter((item) => !item.completed))
   }
 
   function changeMode(currentMode: Mode) {
-    setMode(currentMode);
+    setMode(currentMode)
   }
 
   return (
     <div className={styles.main}>
-      <TaskForm cb={getTask}></TaskForm>
+      <TaskForm onAddTask={addTask}></TaskForm>
       <div className={styles.list}>
         <TaskFilters changeMode={changeMode}></TaskFilters>
-        <TaskList
-          data={data}
-          toggleData={ToggleData}
-          deleteItem={deleteItem}
-          mode={mode}
-        ></TaskList>
+        <TaskList data={data} onToggle={toggleTask} onDelete={deleteItem} mode={mode}></TaskList>
       </div>
 
-      <TaskStats
-        deleteCompletedTasks={deleteCompletedTasks}
-        data={data}
-      ></TaskStats>
+      <TaskStats deleteCompletedTasks={deleteCompletedTasks} data={data}></TaskStats>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
