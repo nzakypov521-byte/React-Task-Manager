@@ -30,7 +30,7 @@ function App() {
         completed: false,
       };
 
-      setData([...data, dataToSave]);
+      setData((prevData) => [...prevData, dataToSave]);
     } else {
       alert("Заполните поле");
     }
