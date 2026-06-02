@@ -23,10 +23,10 @@ function App() {
   useEffect(() => localStorage.setItem("Data", JSON.stringify(data)), [data]);
 
   function addTask(text: string) {
-    if (text.replaceAll(" ", "")) {
+    if (text.trim()) {
       const dataToSave = {
         id: Date.now(),
-        text: text,
+        text: text.trim(),
         completed: false,
       };
 
