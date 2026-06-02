@@ -12,7 +12,7 @@ function App() {
 
   const [data, setData] = useState<Task[]>(() => {
     try {
-      const saved = localStorage.getItem("Data");
+      const saved = localStorage.getItem("tasks");
       return saved ? JSON.parse(saved) : [];
     } catch (e) {
       console.error(e);
@@ -20,7 +20,7 @@ function App() {
     }
   });
 
-  useEffect(() => localStorage.setItem("Data", JSON.stringify(data)), [data]);
+  useEffect(() => {localStorage.setItem("tasks", JSON.stringify(data))}, [data]);
 
   function addTask(text: string) {
     if (text.trim()) {
