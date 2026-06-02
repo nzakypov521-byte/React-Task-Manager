@@ -1,15 +1,16 @@
 import styles from "../scss/TaskFilters.module.scss";
+import type { Mode } from "../types";
 
 function TaskFilters({
   changeMode,
 }: {
-  changeMode: (currentMode: string) => void;
+  changeMode: (currentMode: Mode) => void;
 }) {
   return (
     <div className={styles.mainBlock}>
       <button onClick={() => changeMode("All")}>Все</button>
-      <button onClick={() => changeMode("Complete")}>Выполненные</button>
-      <button onClick={() => changeMode("Uncomplete")}>Невыполненные</button>
+      <button onClick={() => changeMode("Completed")}>Выполненные</button>
+      <button onClick={() => changeMode("Active")}>Невыполненные</button>
     </div>
   );
 }

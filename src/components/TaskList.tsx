@@ -1,35 +1,27 @@
 import styles from "../scss/TaskList.module.scss";
 import TaskItem from "./TaskItem";
 import type { Task } from "../types";
-import TaskFilters from "./TaskFilters";
-import { useState } from "react";
+import type { Mode } from "../types";
 
 function TaskList({
   data,
   toggleData,
   deleteItem,
+  mode,
 }: {
   data: Task[];
   toggleData: (id: number, status: boolean) => void;
   deleteItem: (id: number) => void;
+  mode: Mode;
 }) {
-  const [mode, setMode] = useState<string>("All");
-
-  function changeMode(currentMode: string) {
-    setMode(currentMode);
-  }
-
   return (
     <div className={styles.mainBlock}>
-      <div className={styles.nav}>
-        <TaskFilters changeMode={changeMode}></TaskFilters>
-      </div>
       <div className={styles.list}>
         {data
           .filter(
             (item) =>
               mode == "All" ||
-              (mode === "Complete" ? item.completed : !item.completed),
+              (mode === "Completed" ? item.completed : !item.completed),
           )
           .map((item) => (
             <TaskItem

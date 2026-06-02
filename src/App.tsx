@@ -4,8 +4,12 @@ import TaskForm from "./components/TaskForm";
 import styles from "./scss/App.module.scss";
 import type { Task } from "./types";
 import TaskStats from "./components/TaskStats";
+import TaskFilters from "./components/TaskFilters";
+import type { Mode } from "./types";
 
 function App() {
+  const [mode, setMode] = useState<Mode>("All");
+
   const [data, setData] = useState<Task[]>([
     {
       id: 1,
@@ -44,14 +48,19 @@ function App() {
     setData((prevData) => prevData.filter((item) => !item.completed));
   }
 
+  function changeMode(currentMode: Mode) {
+    setMode(currentMode);
+  }
+
   return (
     <div className={styles.main}>
       <TaskForm cb={getTask}></TaskForm>
-
+      <TaskFilters changeMode={changeMode}></TaskFilters>
       <TaskList
         data={data}
         toggleData={ToggleData}
         deleteItem={deleteItem}
+        mode={mode}
       ></TaskList>
 
       <TaskStats

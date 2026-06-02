@@ -3,3 +3,5 @@ export interface Task {
   text: string;
   completed: boolean;
 }
+
+export type Mode = "All" | "Completed" | "Active";
