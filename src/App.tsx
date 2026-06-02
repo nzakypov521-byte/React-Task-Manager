@@ -38,7 +38,7 @@ function App() {
     }
   }
 
-  function ToggleTask(id: number, status: boolean) {
+  function toggleTask(id: number, status: boolean) {
     setData((prevData) =>
       prevData.map((item) => (item.id === id ? { ...item, completed: status } : item)),
     )
@@ -61,7 +61,7 @@ function App() {
       <TaskForm onAddTask={addTask}></TaskForm>
       <div className={styles.list}>
         <TaskFilters changeMode={changeMode}></TaskFilters>
-        <TaskList data={data} onToggle={ToggleTask} onDelete={deleteItem} mode={mode}></TaskList>
+        <TaskList data={data} onToggle={toggleTask} onDelete={deleteItem} mode={mode}></TaskList>
       </div>
 
       <TaskStats deleteCompletedTasks={deleteCompletedTasks} data={data}></TaskStats>
