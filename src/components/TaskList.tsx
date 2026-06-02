@@ -16,22 +16,22 @@ function TaskList({
 }) {
   return (
     <div className={styles.mainBlock}>
-        {data
-          .filter(
-            (item) =>
-              mode === "All" ||
-              (mode === "Completed" ? item.completed : !item.completed),
-          )
-          .map((item) => (
-            <TaskItem
-              key={item.id}
-              id={item.id}
-              text={item.text}
-              completed={item.completed}
-              toggleData={toggleData}
-              deleteItem={deleteItem}
-            ></TaskItem>
-          ))}
+      {data
+        .filter(
+          (item) =>
+            mode === "All" ||
+            (mode === "Completed" ? item.completed : !item.completed),
+        )
+        .map((item) => (
+          <TaskItem
+            key={item.id}
+            id={item.id}
+            text={item.text}
+            completed={item.completed}
+            toggleData={toggleData}
+            deleteItem={deleteItem}
+          ></TaskItem>
+        ))}
     </div>
   );
 }
