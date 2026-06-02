@@ -16,11 +16,10 @@ function TaskList({
 }) {
   return (
     <div className={styles.mainBlock}>
-      <div className={styles.list}>
         {data
           .filter(
             (item) =>
-              mode == "All" ||
+              mode === "All" ||
               (mode === "Completed" ? item.completed : !item.completed),
           )
           .map((item) => (
@@ -33,7 +32,6 @@ function TaskList({
               deleteItem={deleteItem}
             ></TaskItem>
           ))}
-      </div>
     </div>
   );
 }

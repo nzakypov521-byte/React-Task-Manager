@@ -10,7 +10,7 @@ function TaskFilters({
     <div className={styles.mainBlock}>
       <button onClick={() => changeMode("All")}>Все</button>
       <button onClick={() => changeMode("Completed")}>Выполненные</button>
-      <button onClick={() => changeMode("Active")}>Невыполненные</button>
+      <button onClick={() => changeMode("Active")}>Активные</button>
     </div>
   );
 }

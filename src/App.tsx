@@ -55,13 +55,15 @@ function App() {
   return (
     <div className={styles.main}>
       <TaskForm cb={getTask}></TaskForm>
-      <TaskFilters changeMode={changeMode}></TaskFilters>
+     <div className={styles.list}>
+     <TaskFilters changeMode={changeMode}></TaskFilters>
       <TaskList
         data={data}
         toggleData={ToggleData}
         deleteItem={deleteItem}
         mode={mode}
       ></TaskList>
+     </div>
 
       <TaskStats
         deleteCompletedTasks={deleteCompletedTasks}
