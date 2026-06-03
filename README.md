@@ -9,3 +9,5 @@ npm run dev
 npm run build
 npm run lint
 ]
+
+https://nzakypov521-byte.github.io/React-Task-Manager/
