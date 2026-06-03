@@ -2,44 +2,49 @@
   width: 100%;
   height: auto;
 
-  background-color: rgb(184, 136, 74);
-  border: 3px solid burlywood;
-  border-radius: 12px;
-
-  padding: 10% 10%;
+  background-color: transparent;
+  border: none;
 
   display: flex;
   align-items: center;
-  flex-direction: column;
-  gap: 40px;
+  flex-direction: row;
+  gap: 20px;
 
   box-sizing: border-box;
 
   input {
-    width: 100%;
+    flex-grow: 1;
 
-    padding: 4px 5px;
+    height: 46px;
 
-    background-color: blanchedalmond;
+    padding: 4px 10px;
+
+    background-color: rgb(255, 255, 255);
     border: none;
     outline: none;
-    border-radius: 4px;
+    border-radius: 12px;
 
     box-sizing: border-box;
   }
 
-  input:not(:placeholder-shown) {
+  input:focus {
     background-color: #f0f7ff;
     box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
   }
 
   button {
-    width: 40%;
+    width: 90px;
+    height: 46px;
+
+    box-sizing: border-box;
 
     padding: 10px 0;
 
-    background-color: cornsilk;
+    color: white;
+
+    background-color: rgb(201, 77, 5);
     border: none;
+    border-radius: 12px;
   }
 
   button:hover {

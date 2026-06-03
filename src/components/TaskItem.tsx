@@ -11,15 +11,13 @@ interface TaskItemType {
 function TaskItem(props: TaskItemType) {
   return (
     <div className={styles.mainBlock}>
-      <div className={styles.text}>{props.text}</div>
-      <div className={styles.checkbox}>
-        <input
-          type="checkbox"
-          checked={props.completed}
-          onChange={(e) => props.onToggle(props.id, e.target.checked)}
-        />
-        <button onClick={() => props.onDelete(props.id)}>Удалить задачу</button>
-      </div>
+      <input
+        type="checkbox"
+        checked={props.completed}
+        onChange={(e) => props.onToggle(props.id, e.target.checked)}
+      />
+      <div className={`${styles.text} ${props.completed ? styles.completed : ''}`}>{props.text}</div>
+      <button onClick={() => props.onDelete(props.id)}>Удалить</button>
     </div>
   )
 }

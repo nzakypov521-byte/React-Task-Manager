@@ -16,7 +16,7 @@ function TaskList({
 }) {
   return (
     <div className={styles.mainBlock}>
-      {data
+      {data && data.length > 0 ? (data
         .filter(
           (item) => mode === 'All' || (mode === 'Completed' ? item.completed : !item.completed),
         )
@@ -29,7 +29,7 @@ function TaskList({
             onToggle={onToggle}
             onDelete={onDelete}
           ></TaskItem>
-        ))}
+        ))) : 'Пусто'}
     </div>
   )
 }

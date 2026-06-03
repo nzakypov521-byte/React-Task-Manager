@@ -17,7 +17,7 @@ function TaskForm({ onAddTask }: { onAddTask: (text: string) => void }) {
         type="text"
         value={text}
         onChange={(e) => setText(e.target.value)}
-        placeholder="Описание задачи"
+        placeholder="Новая задача"
         required
       />
       <button>Добавить</button>

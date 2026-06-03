@@ -10,19 +10,27 @@ function TaskStats({
 }) {
   return (
     <div className={styles.mainBlock}>
-      <div className={styles.completeTasks}>
-        Выполнено задач:
-        {data.filter((item) => item.completed).length}
+      <div className={styles.stats}>
+        <div className={styles.tasksStat}>
+          Всего:
+          <div className={styles.tasksStatAmount}>
+          {data.length}
+          </div>
+        </div>
+        <div className={styles.tasksStat}>
+          Выполнено:
+          <div className={styles.tasksStatAmount}>
+          {data.filter((item) => item.completed).length}
+          </div>
+        </div>
+        <div className={styles.tasksStat}>
+          Осталось:
+          <div className={styles.tasksStatAmount}>
+          {data.filter((item) => !item.completed).length}
+          </div>
+        </div>
       </div>
-      <div className={styles.unCompleteTasks}>
-        Невыполнено задач:
-        {data.filter((item) => !item.completed).length}
-      </div>
-      <div className={styles.allTasks}>
-        Общее кол-во задач:
-        {data.length}
-      </div>
-      <button onClick={deleteCompletedTasks}>Удалить выполненные задачи</button>
+      <button onClick={deleteCompletedTasks}>Удалить выполненные</button>
     </div>
   )
 }
