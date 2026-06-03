@@ -1,0 +1,63 @@
+.mainBlock {
+  width: 100%;
+  height: auto;
+
+  background-color: transparent;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  border-radius: 12px;
+  border: none;
+
+  text-align: start;
+
+  font-size: 80%;
+
+  .stats {
+    flex: 1;
+    height: 25px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+
+    gap: 9px;
+
+    .tasksStat {
+      color: gray;
+
+      display: flex;
+      flex-direction: row;
+      align-items: start;
+
+      gap: 4px;
+
+      .tasksStatAmount {
+        font-weight: bold;
+        color: black;
+      }
+    }
+  }
+
+  button {
+    width: 300px;
+    height: 25px;
+
+    color: red;
+
+    background-color: transparent;
+
+    border: none;
+    border-radius: 12px;
+
+    display: flex;
+    justify-content: end;
+  }
+
+  button:hover {
+    cursor: pointer;
+  }
+}

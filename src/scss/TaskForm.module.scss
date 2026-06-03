@@ -1,0 +1,54 @@
+.mainBlock {
+  width: 100%;
+  height: auto;
+
+  background-color: transparent;
+  border: none;
+
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  gap: 20px;
+
+  box-sizing: border-box;
+
+  input {
+    flex-grow: 1;
+
+    height: 46px;
+
+    padding: 4px 10px;
+
+    background-color: rgb(255, 255, 255);
+    border: none;
+    outline: none;
+    border-radius: 12px;
+
+    box-sizing: border-box;
+  }
+
+  input:focus {
+    background-color: #f0f7ff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  }
+
+  button {
+    width: 90px;
+    height: 46px;
+
+    box-sizing: border-box;
+
+    padding: 10px 0;
+
+    color: white;
+
+    background-color: rgb(201, 77, 5);
+    border: none;
+    border-radius: 12px;
+  }
+
+  button:hover {
+    cursor: pointer;
+    background-color: burlywood;
+  }
+}

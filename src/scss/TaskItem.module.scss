@@ -1,0 +1,65 @@
+.mainBlock {
+  width: 100%;
+  min-height: 90px;
+
+  overflow-y: hidden;
+
+  background-color: seashell;
+
+  border: 3px solid gainsboro;
+  border-radius: 12px;
+
+  color: black;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+
+  box-sizing: border-box;
+
+  padding: 0px 10px;
+
+  flex-shrink: 0;
+
+  .text {
+    flex: 1;
+    &.completed {
+      color: gray;
+      text-decoration: line-through;
+    }
+  }
+
+  input {
+    width: 25px;
+    height: 25px;
+
+    border: 1px solid white;
+    accent-color: rgb(201, 77, 5);
+  }
+
+  input:hover {
+    cursor: pointer;
+  }
+
+
+  button {
+    width: 90px;
+    height: 20px;
+
+    background-color: transparent;
+    color: gray;
+
+    border: none;
+    border-radius: 10px;
+
+    font-size: 90%;
+  }
+
+  button:hover {
+    cursor: pointer;
+    color: red;
+    transition: 0.5s ease;
+  }
+}
